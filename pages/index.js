@@ -1,7 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 
 import DashboardPage from "@/js/Components/Pages/DashboardPage";
 import {getAllCollections} from "@/js/utils/database";
+
+
+// import i18n (needs to be bundled ;)) 
+import './i18n';
+
 
 export const CollectionsContext = React.createContext({});
 
