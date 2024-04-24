@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: false, // Enable React strict mode for improved error handling
   swcMinify: true,      // Enable SWC minification for improved performance
   compiler: {
-    removeConsole: process.env.NODE_ENV !== "development", // Remove console.log in production
+    removeConsole: process.env.ENV_NODE !== "development", // Remove console.log in production
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
@@ -17,7 +17,7 @@ const nextConfig = {
 // Configuration object tells the next-pwa plugin
 const withPWAConfig = withPWA({
   dest: "public", // Destination directory for the PWA files
-  disable: process.env.NODE_ENV === "development", // Disable PWA in development mode
+  disable: process.env.ENV_NODE === "development", // Disable PWA in development mode
   register: true, // Register the PWA service worker
   skipWaiting: true, // Skip waiting for service worker activation
 })(
