@@ -4,7 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./js/components/**/*.{js,ts,jsx,tsx}"
+    "./js/Components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
