@@ -1,7 +1,7 @@
 import React from "react";
 
 import CollectionPage from "@/js/Components/Pages/CollectionPage";
-import {getAllCollections, getArticlesByCollection} from "@/js/utils/database";
+import {getAllCollections, getArticlesByCollectionSlug} from "@/js/utils/database";
 
 export const CollectionContext = React.createContext({});
 
@@ -16,8 +16,8 @@ export default function Collection({articles}) {
 }
 
 export function getStaticProps({params,}) {
-	const collectionId = params.id;
-	const articles = getArticlesByCollection(collectionId);
+	const collectionSlug = params.slug;
+	const articles = getArticlesByCollectionSlug(collectionSlug);
 
 	return {
 		props: {
@@ -26,10 +26,9 @@ export function getStaticProps({params,}) {
 	};
 }
 
-/// TODO: Get collections by slug
 export async function getStaticPaths() {
 	const paths = getAllCollections().map((collection) => ({
-		params: {id: collection.id.toString()},
+		params: {slug: collection.slug},
 	}));
 
 	return {paths, fallback: false};

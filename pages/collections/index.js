@@ -20,7 +20,7 @@ export function getStaticProps() {
 
     return {
         props: {
-            collections: getAllCollections(),
+            collections: collectionsArray,
         },
     };
 }
