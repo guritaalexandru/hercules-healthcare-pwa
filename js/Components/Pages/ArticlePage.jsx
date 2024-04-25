@@ -2,7 +2,7 @@ import React, {useContext, Suspense} from 'react';
 import { useTranslation } from 'react-i18next';
 
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
-import {ArticleContext} from "@/pages/article/[id]";
+import {ArticleContext} from "@/pages/article/[slug]";
 import {markdownToHtml} from "@/js/utils/markdown";
 
 function ArticlePage(props){

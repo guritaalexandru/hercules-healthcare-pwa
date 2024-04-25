@@ -2,7 +2,7 @@ import React, {useContext, Suspense} from 'react';
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
 import { useTranslation } from 'react-i18next';
 
-import {CollectionContext} from "@/pages/collections/[id]";
+import {CollectionContext} from "@/pages/collections/[slug]";
 import Link from "next/link";
 
 function CollectionPage(props){
@@ -23,7 +23,7 @@ function CollectionPage(props){
 						{articles.map((article, index) => {
 							return (
 								<div key={index} className={'border border-gray-300 rounded p-4 mb-4'}>
-									<Link href={'/article/' + article.id}>
+									<Link href={'/article/' + article.slug}>
 										<h2 className={'text-3xl font-bold'}>
 											{article.name}
 										</h2>

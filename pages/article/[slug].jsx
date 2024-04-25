@@ -1,8 +1,7 @@
 import React from "react";
 
-import {getAllArticles, getArticleById} from "@/js/utils/database";
+import {getAllArticles, getArticleBySlug} from "@/js/utils/database";
 import ArticlePage from "@/js/Components/Pages/ArticlePage";
-import {markdownToHtml} from "@/js/utils/markdown";
 
 export const ArticleContext = React.createContext({});
 
@@ -17,8 +16,8 @@ export default function Collection({article}) {
 }
 
 export function getStaticProps({params,}) {
-	const articleId = params.id;
-	const article = getArticleById(articleId);
+	const articleSlug = params.slug
+	const article = getArticleBySlug(articleSlug);
 
 	return {
 		props: {
@@ -27,10 +26,9 @@ export function getStaticProps({params,}) {
 	};
 }
 
-/// TODO: Get articles by slug
 export function getStaticPaths() {
 	const paths = getAllArticles().map((article) => ({
-		params: {id: article.id.toString()},
+		params: {slug: article.slug},
 	}));
 
 	return {paths, fallback: false};

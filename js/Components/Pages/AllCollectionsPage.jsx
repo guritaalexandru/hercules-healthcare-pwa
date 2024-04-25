@@ -23,7 +23,7 @@ function AllCollectionsPage(props){
 						{collections.map((collection, index) => {
 							return (
 								<div key={index} className={'border border-gray-300 rounded p-4 mb-4'}>
-									<Link href={'/collections/' + collection.id}>
+									<Link href={'/collections/' + collection.slug}>
 										<h2 className={'text-3xl font-bold'}>
 											{collection.name}
 										</h2>
