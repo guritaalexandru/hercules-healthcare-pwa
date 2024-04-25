@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -23,11 +26,22 @@ export default function Search() {
 
   return (
     <div>
-      <input
-        type="text"
-        value={query}
-        onChange={handleSearch}
-      />
+       <form style={{ display: "flex", justifyContent: "center" }}>
+            <TextField
+              variant="outlined"
+              value={query}
+              onChange={handleSearch}
+              placeholder="Search..."
+              sx={{ width: "95%" }}
+              InputProps={{
+                endAdornment: (
+                  <IconButton type="submit">
+                    <SearchIcon />
+                  </IconButton>
+                ),
+              }}
+            />
+          </form>
       {results.map((result, index) => (
         <div key={index}>{result}</div>
       ))}
