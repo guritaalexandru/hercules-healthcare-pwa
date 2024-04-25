@@ -3,6 +3,7 @@ import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import Search from "@/js/Components/Search";
 
 import { CollectionsContext } from "@/pages";
 import { useTranslation } from "react-i18next";
