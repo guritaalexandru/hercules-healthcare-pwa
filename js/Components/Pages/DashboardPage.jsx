@@ -5,6 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
 import { CollectionsContext } from "@/pages";
+import { useTranslation } from "react-i18next";
 
 function DashboardPage(props) {
   const collections = useContext(CollectionsContext);
@@ -17,7 +18,7 @@ function DashboardPage(props) {
         <div>
           <div className={"content-container"}>
             <h1 className={"text-3xl text-center mb-10 mt-10"}>
-              Quick access Dashboard
+              {t("dashboardPageTitle")}
             </h1>
           </div>
           <form style={{ display: "flex", justifyContent: "center" }}>
@@ -38,5 +39,13 @@ function DashboardPage(props) {
         </div>
       </div>
     </GeneralLayout>
+  );
+}
+
+export default function App() {
+  return (
+    <Suspense fallback="loading">
+      <DashboardPage />
+    </Suspense>
   );
 }
