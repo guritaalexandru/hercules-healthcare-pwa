@@ -16,7 +16,7 @@ export default function Collection({article}) {
 	);
 }
 
-export async function getStaticProps({params,}) {
+export function getStaticProps({params,}) {
 	const articleId = params.id;
 	const article = getArticleById(articleId);
 
@@ -28,7 +28,7 @@ export async function getStaticProps({params,}) {
 }
 
 /// TODO: Get articles by slug
-export async function getStaticPaths() {
+export function getStaticPaths() {
 	const paths = getAllArticles().map((article) => ({
 		params: {id: article.id.toString()},
 	}));

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Suspense } from "react";
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
@@ -6,8 +6,9 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { CollectionsContext } from "@/pages";
 
-export default function DashboardPage(props) {
+function DashboardPage(props) {
   const collections = useContext(CollectionsContext);
+  const { t, i18n } = useTranslation();
   console.log(collections);
 
   return (
