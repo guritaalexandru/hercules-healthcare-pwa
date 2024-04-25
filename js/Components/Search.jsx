@@ -5,27 +5,32 @@ export default function Search() {
   const [results, setResults] = useState([]);
 
   const handleSearch = async (event) => {
-    event.preventDefault();
+    const newQuery = event.target.value;
+    setQuery(newQuery);
 
-    // Make a request to the search API
-    const res = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
-    const newResults = await res.json();
+    if (newQuery) {
+      // Make a request to the search API
+      const res = await fetch(`/api/search?query=${encodeURIComponent(newQuery)}`);
+      const newResults = await res.json();
 
-    // Update the state with the new results
-    setResults(newResults);
+      // Update the state with the new results
+      setResults(newResults);
+    } else {
+      // If the query is empty, clear the results
+      setResults([]);
+    }
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <div>
       <input
         type="text"
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        onChange={handleSearch}
       />
-      <button type="submit">Search</button>
       {results.map((result, index) => (
         <div key={index}>{result}</div>
       ))}
-    </form>
+    </div>
   );
 }
