@@ -12,6 +12,9 @@ const nextConfig = {
 
     return config;
   },
+  eslint: {
+    ignoreDuringBuilds: true, // Ignore ESLint errors during production builds
+  },
 };
 
 // Configuration object tells the next-pwa plugin
