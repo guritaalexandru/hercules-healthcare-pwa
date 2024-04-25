@@ -8,6 +8,7 @@ export default function Search() {
   const [results, setResults] = useState([]);
 
   const handleSearch = async (event) => {
+    event.preventDefault(); // Prevent the form from refreshing the page
     const newQuery = event.target.value;
     setQuery(newQuery);
 
@@ -42,9 +43,18 @@ export default function Search() {
               }}
             />
           </form>
-      {results.map((result, index) => (
-        <div key={index}>{result}</div>
-      ))}
+          {results.map((result, index) => (
+      <div key={index} style={{ //TODO: pagination to articles, styling
+        backgroundColor: '#f8f9fa', 
+        width: "90%",
+        border: '1px solid #dee2e6', 
+        borderRadius: '5px', 
+        padding: '10px', 
+        margin: '5px auto', 
+      }}>
+        {result}
+      </div>
+    ))}
     </div>
   );
 }
