@@ -64,3 +64,19 @@
     @apply transform right-1/2 top-1/2 -translate-y-1/2 translate-x-1/2;
   }
 }
+
+.side-menu {
+  position: fixed;
+  top: 56px; /* Position the side menu below the top navigation bar */
+  right: 0; /* Position the side menu at the right edge of the screen */
+  width: 100%; /* Ensure the side menu occupies the full width of the screen */
+  height: calc(100% - 56px); /* Ensure the side menu occupies the full height of the screen */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  z-index: 1000; /* Ensure side menu appears above other content */
+  transition: transform 0.3s ease-in-out; /* Slide transition effect */
+  transform: translateX(100%); /* Initially hide the side menu off-screen */
+}
+
+.side-menu.open {
+  transform: translateX(0); /* Slide the side menu into view */
+}
