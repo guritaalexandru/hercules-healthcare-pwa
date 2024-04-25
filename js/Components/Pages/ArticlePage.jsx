@@ -1,11 +1,13 @@
-import React, {useContext} from 'react';
+import React, {useContext, Suspense} from 'react';
+import { useTranslation } from 'react-i18next';
 
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
 import {ArticleContext} from "@/pages/article/[id]";
 import {markdownToHtml} from "@/js/utils/markdown";
 
-export default function ArticlePage(props){
+function ArticlePage(props){
 	const article = useContext(ArticleContext);
+	const { t, i18n } = useTranslation();
 	const articleContentMarkdown = article.content;
 
 	const {contentHtml, tableOfContents} = markdownToHtml(articleContentMarkdown);
@@ -16,7 +18,7 @@ export default function ArticlePage(props){
 				<div>
 					<div className={'content-container'}>
 						<h1 className={'text-5xl text-center mb-20 mt-10'}>
-							Article name
+							{t('articlePageTitle')}
 						</h1>
 					</div>
 					<div className={'content-container'}>
@@ -53,3 +55,11 @@ export default function ArticlePage(props){
 		</GeneralLayout>
 	)
 }
+
+export default function App() {
+	return (
+	  <Suspense fallback="loading">
+		<ArticlePage />
+	  </Suspense>
+	);
+  }
