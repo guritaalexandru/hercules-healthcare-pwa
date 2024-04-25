@@ -15,7 +15,7 @@ function AllCollectionsPage(props) {
       <div id={"AllCollectionsPage"}>
         <div>
           <div className={"content-container"}>
-            <h1 className={"text-5xl text-center mb-20 mt-10"}>
+            <h1 className={"text-4xl text-center mb-10 mt-10"}>
               {t("allCollectionsTitle")}
             </h1>
           </div>

@@ -10,15 +10,14 @@ import { useTranslation } from "react-i18next";
 function DashboardPage(props) {
   const collections = useContext(CollectionsContext);
   const { t, i18n } = useTranslation();
-  console.log(collections);
 
   return (
     <GeneralLayout>
       <div id={"DashboardPage"}>
         <div>
           <div className={"content-container"}>
-            <h1 className={"text-3xl text-center mb-10 mt-10"}>
-              {t("dashboardPageTitle")}
+            <h1 className={"text-4xl text-center mb-10 mt-10"}>
+              {t("dashboardTitle")}
             </h1>
           </div>
           <form style={{ display: "flex", justifyContent: "center" }}>
