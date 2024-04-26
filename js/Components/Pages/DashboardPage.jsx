@@ -1,5 +1,6 @@
-import React, { useContext, Suspense } from "react";
+import React, { useContext, } from "react";
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
+import { useTranslation } from 'next-i18next'
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,9 +8,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { CollectionsContext } from "@/pages";
 import { useTranslation } from "react-i18next";
 
-function DashboardPage(props) {
-  const collections = useContext(CollectionsContext);
-  const { t, i18n } = useTranslation();
+export default function DashboardPage(props){
+	const collections = useContext(CollectionsContext);
+	const { t } = useTranslation();
+	console.log(collections);
 
   return (
     <GeneralLayout>
@@ -38,13 +40,5 @@ function DashboardPage(props) {
         </div>
       </div>
     </GeneralLayout>
-  );
-}
-
-export default function App() {
-  return (
-    <Suspense fallback="loading">
-      <DashboardPage />
-    </Suspense>
   );
 }
