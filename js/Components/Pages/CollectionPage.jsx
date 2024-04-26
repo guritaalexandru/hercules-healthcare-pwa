@@ -1,4 +1,4 @@
-import React, {useContext, Suspense} from 'react';
+import React, { useContext, Suspense } from "react";
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
 import { useTranslation } from 'next-i18next'
 
@@ -37,12 +37,3 @@ export default function CollectionPage(props){
 		</GeneralLayout>
 	)
 }
-
-/*
-export default function App() {
-	return (
-	  <Suspense fallback="loading">
-		<CollectionPage />
-	  </Suspense>
-	);
-*/
