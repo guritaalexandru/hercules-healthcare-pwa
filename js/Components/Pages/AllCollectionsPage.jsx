@@ -1,13 +1,13 @@
 import React, {useContext, Suspense} from 'react';
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next'
 
 import {CollectionsContext} from "@/pages/collections";
 import Link from "next/link";
 
-function AllCollectionsPage(props){
+export default function AllCollectionsPage(props){
 	const collections = useContext(CollectionsContext);
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	console.log(collections);
 
 	return (
@@ -38,6 +38,7 @@ function AllCollectionsPage(props){
 	)
 }
 
+/*
 export default function App() {
 	return (
 	  <Suspense fallback="loading">
@@ -45,3 +46,4 @@ export default function App() {
 	  </Suspense>
 	);
   }
+  */
