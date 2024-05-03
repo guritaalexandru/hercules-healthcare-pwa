@@ -24,5 +24,26 @@ export default async function handler(req, res) {
   });
 
   // Return the search results
+  //console.log(json(results));
+
+  //ask db for corresp articles from IDs
+  // URI = articles/[id]
+  // output json({ name: article.name, ID: article.id })
+
+
+  let newResults = {
+    id: new Array(),
+    name: new Array(),
+  };
+  for(let i=0; i < results.length; i++){
+    newResults.id[i] = results[i];
+    newResults.name[i] = getArticleById(results[i]).name;
+    //newResults.URI = 
+  }
+
+  //console.log(newResults);
+
+  res.status(200).json( newResults.name );
   res.status(200).json(results);
+  //res.status(200).toString(results);
 }
