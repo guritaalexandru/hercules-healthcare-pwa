@@ -16,7 +16,12 @@ export default async function handler(req, res) {
   articles.forEach(article => index.add(article.id, article.name));
 
   // Use the FlexSearch index to perform a search
-  const results = index.search(query);
+  const resultId = index.search(query);
+
+  const results = resultId.map(id => {
+    const article = articles.find(article => article.id === id);
+    return article ? article.name : null;
+  });
 
   // Return the search results
   res.status(200).json(results);
