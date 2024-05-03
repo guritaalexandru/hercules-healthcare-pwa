@@ -16,6 +16,7 @@ export default function Search() {
       // Make a request to the search API
       const res = await fetch(`/api/search?query=${encodeURIComponent(newQuery)}`);
       const newResults = await res.json();
+      //console.log("newRes: ", newResults);
 
       // Update the state with the new results
       setResults(newResults);

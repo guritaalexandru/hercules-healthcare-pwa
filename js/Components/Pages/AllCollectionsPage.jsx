@@ -8,7 +8,7 @@ import Link from "next/link";
 function AllCollectionsPage(props) {
   const collections = useContext(CollectionsContext);
   const { t, i18n } = useTranslation();
-  console.log(collections);
+  //console.log(collections);
 
   return (
     <GeneralLayout>

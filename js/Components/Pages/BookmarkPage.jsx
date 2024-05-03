@@ -5,7 +5,7 @@ import { CollectionsContext } from "@/pages";
 
 export default function BookmarkPage(props) {
   const collections = useContext(CollectionsContext);
-  console.log(collections);
+  //console.log(collections);
 
   return (
     <GeneralLayout>
