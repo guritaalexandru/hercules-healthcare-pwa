@@ -2,5 +2,6 @@
     "dashboardTitle": "Dashboard",
     "allCollectionsTitle": "All Collections",
     "articlePageTitle": "Article Name will probably not be localized since it is dynamic",
-    "CollectionPageTitle": "Collection Name"
+    "CollectionPageTitle": "Collection Name",
+    "bookmarksPageTitle": "Bookmarks"
 }

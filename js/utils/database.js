@@ -39,6 +39,10 @@ const getArticleBySlug = slug => {
 	return db.prepare('SELECT * FROM ARTICLES WHERE slug = ?').get(slug);
 };
 
+const getAllBookmarks = () => {
+	return db.prepare('SELECT * FROM ARTICLES WHERE id IN (SELECT article_id FROM BOOKMARKS)').all();
+}
+
 export {
 	getAllCollections,
 	getCollectionById,
@@ -48,4 +52,5 @@ export {
 	getCollectionBySlug,
 	getArticleBySlug,
 	getArticlesByCollectionSlug,
+	getAllBookmarks,
 };
