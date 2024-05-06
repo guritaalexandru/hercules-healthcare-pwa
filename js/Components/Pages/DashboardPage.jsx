@@ -1,5 +1,5 @@
 import React, { useContext, } from 'react';
-import GeneralLayout from '@/js/Components/Layout/GeneralLayout';
+import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
