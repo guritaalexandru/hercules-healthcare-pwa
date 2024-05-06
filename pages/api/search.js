@@ -1,3 +1,4 @@
+import { getArticleById,} from '@/js/utils/database.js';
 import {getIndex,} from '@/js/utils/flexsearch.js';
 
 export default async function handler(req, res) {
@@ -25,16 +26,21 @@ export default async function handler(req, res) {
 	const finalResultsIdsArray = Array.from(finalResultsIdsSet);
 	console.log('finalResultsIdsArray: ', finalResultsIdsArray);
 
-	const newResults = {
-		id: new Array(),
-		name: new Array(),
-	};
-
-	// for(let i=0; i < results.length; i++){
-	//   newResults.id[i] = results[i];
-	//   newResults.name[i] = getArticleById(results[i]).name;
-	//   //newResults.URI =
-	// }
+	const newResults = [];
+		
+	for(let i=0; i < finalResultsIdsArray.length; i++){
+		const dbArticle = await getArticleById(finalResultsIdsArray[i]);
+		const resultArticle = {
+			name: dbArticle.name,
+			slug: dbArticle.slug,
+		};
+		//newResults.name = dbArticle.name;
+		//newResults.slug = dbArticle.slug;
+		//newResults.id[i] = finalResultsIdsArray[i];
+		//newResults.name[i] = await getArticleById(finalResultsIdsArray[i]).name;
+		//newResults.slug[i] = await getArticleById(finalResultsIdsArray[i]).slug;
+		newResults.push(resultArticle);
+	}
 	//
 	// //console.log(newResults);
 	//
@@ -42,7 +48,9 @@ export default async function handler(req, res) {
 	// res.status(200).json(results);
 	// //res.status(200).toString(results);
 
+	//console.log(newResults);
+
 	res.status(200).json({
-		results: [],
+		newResults: newResults,
 	});
 }

@@ -2,6 +2,7 @@ import React, { useState, } from 'react';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import Link from "next/link";
 
 export default function Search() {
 	const [query, setQuery] = useState('');
@@ -15,12 +16,14 @@ export default function Search() {
 		if (newQuery) {
 			// Make a request to the search API
 			const res = await fetch(`/api/search?query=${encodeURIComponent(newQuery)}`);
-			const newResults = await res.json();
-			//console.log("newRes: ", newResults);
-			console.log('newRes: ', newResults);
+			const newResultsObj = await res.json();
+			const newResults = newResultsObj.newResults;
+			console.log('newRes: ', newResults); //FIXME: Contains nothing
 
 			// Update the state with the new results
-			setResults([]);
+
+			setResults(newResults);
+
 		} else {
 			// If the query is empty, clear the results
 			setResults([]);
@@ -56,7 +59,12 @@ export default function Search() {
 						padding: '10px',
 						margin: '5px auto',
 					}}>
-					{result}
+					<Link
+						href={"/article/" + result.slug }
+						className={"flex-1 flex items-center justify-center"}
+					>
+						{result.name}
+					</Link>		
 				</div>
 			))}
 		</div>
