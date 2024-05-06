@@ -1,13 +1,13 @@
 import React, {useContext, Suspense} from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next'
 
 import GeneralLayout from "@/js/Components/Layout/GeneralLayout";
-import {ArticleContext} from "@/pages/article/[id]";
+import {ArticleContext} from "@/pages/article/[slug]";
 import {markdownToHtml} from "@/js/utils/markdown";
 
-function ArticlePage(props){
+export default function ArticlePage(props){
 	const article = useContext(ArticleContext);
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const articleContentMarkdown = article.content;
 
 	const {contentHtml, tableOfContents} = markdownToHtml(articleContentMarkdown);
@@ -56,6 +56,7 @@ function ArticlePage(props){
 	)
 }
 
+/*
 export default function App() {
 	return (
 	  <Suspense fallback="loading">
@@ -63,3 +64,4 @@ export default function App() {
 	  </Suspense>
 	);
   }
+*/
