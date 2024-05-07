@@ -8,7 +8,7 @@ export const CollectionsContext = React.createContext({});
 
 export default function Collections({ collections, }) {
 	return (
-		<CollectionsContext.Provider value={ collections }>
+		<CollectionsContext.Provider value={collections}>
 			<main className="page-container relative">
 				<AllCollectionsPage />
 			</main>

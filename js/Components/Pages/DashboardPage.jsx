@@ -4,7 +4,7 @@ import { useTranslation, } from 'next-i18next';
 import { TextField, IconButton, Grid, ButtonBase, styled, Typography, } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { CollectionsContext, } from '@/pages';
+import { CollectionsContext, } from '@/pages/collections';
 
 const Img = styled('img')({
 	margin: 'auto',
@@ -15,6 +15,7 @@ const Img = styled('img')({
 
 export default function DashboardPage(){
 	const { t, } = useTranslation();
+	const collections = useContext(CollectionsContext);
 
 	return (
 		<GeneralLayout>
@@ -26,11 +27,24 @@ export default function DashboardPage(){
 						</h1>
 					</div>
 					<form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
+						<TextField
+							variant="outlined"
+							placeholder="Search..."
+							sx={{ width: '95%', }}
+							InputProps={{
+								endAdornment: (
+									<IconButton type="submit">
+										<SearchIcon />
+									</IconButton>
+								),
+							}}
+						/>
 						<Grid
 							container
 							direction="row"
 							justifyContent="space-around"
 							alignItems="baseline"
+							marginTop={ 1 }
 							spacing={ 2 }
 						>
 							<Grid
@@ -99,18 +113,7 @@ export default function DashboardPage(){
 								<Typography>Covid</Typography>
 							</Grid>
 						</Grid>
-						<TextField
-							variant="outlined"
-							placeholder="Search..."
-							sx={{ width: '95%', }}
-							InputProps={{
-								endAdornment: (
-									<IconButton type="submit">
-										<SearchIcon />
-									</IconButton>
-								),
-							}}
-						/>
+						
 					</form>
 					<div className={ 'content-container' }></div>
 				</div>
