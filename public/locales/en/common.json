@@ -3,7 +3,7 @@
     "allCollectionsTitle": "All Collections",
     "articlePageTitle": "Article Name will probably not be localized since it is dynamic",
     "bookmarkPageTitle": "Bookmark",
-    "CollectionPageTitle": "Collection Name",
+    "collectionPageTitle": "Collection Name",
     "fontSize": "Font Size",
     "language": "Language"
 }
