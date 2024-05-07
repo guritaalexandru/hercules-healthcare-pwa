@@ -1,9 +1,15 @@
 import { Slider, Button, ButtonGroup, } from '@mui/material';
+import { useRouter, } from 'next/router.js';
 import { useTranslation, } from 'next-i18next';
 import React from 'react';
 
 export default function SideMenu() {
-	const { t, } = useTranslation();
+	const { t, i18n, } = useTranslation();
+	const router = useRouter();
+	const changeLanguage = language => {
+		i18n.changeLanguage(language);
+		router.push(router.pathname, router.asPath, { locale: language, });
+	};
 
 	return (
 		<div id="SideMenu">
@@ -27,9 +33,9 @@ export default function SideMenu() {
 					id='language-button'
 					size='large'
 				>
-					<Button>English</Button>
-					<Button>Swedish</Button>
-					<Button>Amharic</Button>
+					<Button onClick={ () => changeLanguage('en') }>English</Button>
+					<Button onClick={ () => changeLanguage('se') }>Swedish</Button>
+					<Button onClick={ () => changeLanguage('se') }>Amharic</Button>
 				</ButtonGroup>
 			</div>
 			
