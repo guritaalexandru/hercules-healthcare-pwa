@@ -16,7 +16,7 @@ export default function DashboardPage(props){
 				<div>
 					<div className={ 'content-container' }>
 						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
-							Dashboard Title
+							{t('dashboardTitle')}
 						</h1>
 					</div>
 					<Search />
