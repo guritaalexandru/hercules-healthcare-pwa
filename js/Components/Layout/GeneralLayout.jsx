@@ -1,8 +1,8 @@
-import React from "react";
-import Header from "@/js/Components/Layout/Header";
-import BottomNavigation from "@/js/Components/Layout/BottomNavigation";
+import React from 'react';
+import Header from '@/js/Components/Layout/Header.jsx';
+import BottomNavigation from '@/js/Components/Layout/BottomNavigation.jsx';
 
-export default function GeneralLayout({ children }) {
+export default function GeneralLayout({ children, }) {
 	return (
 		<div className="flex flex-col min-h-screen">
 			<Header />

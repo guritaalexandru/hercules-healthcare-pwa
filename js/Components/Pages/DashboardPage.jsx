@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { CollectionsContext, } from '@/pages';
 
-export default function DashboardPage(props){
+export default function DashboardPage(){
 	const collections = useContext(CollectionsContext);
 	const { t, } = useTranslation();
 	console.log(collections);
