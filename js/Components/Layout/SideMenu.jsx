@@ -18,13 +18,11 @@ export default function SideMenu() {
 				<Slider
 					id='font-size-slider'
 					aria-label='Font size slider'
-					defaultValue={ 12 }
-					valueLabelDisplay="auto"
-					shiftStep={ 4 }
+					defaultValue={ 4 }
 					step={ 2 }
 					marks={ true }
-					min={ 10 }
-					max={ 18 }
+					min={ 2 }
+					max={ 8 }
 				/>
 				<p id="sidemenu-text">{t('language')}</p>
 				<ButtonGroup

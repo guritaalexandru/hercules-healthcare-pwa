@@ -15,7 +15,7 @@ export default function BookmarkPage() {
 				<div>
 					<div className={ 'content-container' }>
 						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
-							{t('bookmarkPageTitle')}
+							{t('bookmarkTitle')}
 						</h1>
 					</div>
 					<div className={ 'content-container' }></div>

@@ -14,9 +14,7 @@ const Img = styled('img')({
 });
 
 export default function DashboardPage(){
-	const collections = useContext(CollectionsContext);
 	const { t, } = useTranslation();
-	console.log(collections);
 
 	return (
 		<GeneralLayout>
