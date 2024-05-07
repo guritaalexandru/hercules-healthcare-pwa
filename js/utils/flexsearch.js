@@ -17,11 +17,11 @@ const getIndex = async () => {
 		const articles = await getAllArticles();
 		articles.forEach(article => searchIndex.add(article.id, article));
 
-		console.log('Index created');
+		//console.log('Index created');
 		return searchIndex;
 	}
 
-	console.log('Index already exists');
+	//console.log('Index already exists');
 	return searchIndex;
 };
 

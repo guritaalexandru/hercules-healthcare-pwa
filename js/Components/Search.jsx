@@ -16,12 +16,12 @@ export default function Search() {
 		if (newQuery) {
 			// Make a request to the search API
 			const res = await fetch(`/api/search?query=${encodeURIComponent(newQuery)}`);
-			const newResultsObj = await res.json();
+
+			// returns an object containing names and slugs of relevant articles
+			const newResultsObj = await res.json(); 
 			const newResults = newResultsObj.newResults;
-			console.log('newRes: ', newResults); //FIXME: Contains nothing
 
 			// Update the state with the new results
-
 			setResults(newResults);
 
 		} else {
@@ -51,7 +51,7 @@ export default function Search() {
 			{results.map((result, index) => (
 				<div
 					key={ index }
-					style={{ //TODO: pagination to articles, styling
+					style={{ //TODO: styling
 						backgroundColor: '#f8f9fa',
 						width: '90%',
 						border: '1px solid #dee2e6',

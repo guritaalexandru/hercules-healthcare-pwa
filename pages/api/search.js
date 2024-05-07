@@ -4,16 +4,15 @@ import {getIndex,} from '@/js/utils/flexsearch.js';
 export default async function handler(req, res) {
 	const { query, } = req.query;
 
+	//creates an index if empty
 	const searchIndex = await getIndex();
 
 	// Use the FlexSearch index to perform a search
+	// returns an array of ids
 	const searchResults = searchIndex.search(query);
-	console.log('query: ', query);
 
-	console.log('searchResults: ', searchResults);
-
+	// Create a set containing all unique results' ids 
 	const finalResultsIdsSet = new Set();
-
 	searchResults.forEach(resultObject => {
 		const partialResults = resultObject.result;
 
@@ -22,10 +21,10 @@ export default async function handler(req, res) {
 		});
 	});
 
-	console.log('finalResultsIdsSet: ', finalResultsIdsSet);
 	const finalResultsIdsArray = Array.from(finalResultsIdsSet);
-	console.log('finalResultsIdsArray: ', finalResultsIdsArray);
 
+	// Make an array containing the name and slug 
+	// of the articles found in the search
 	const newResults = [];
 		
 	for(let i=0; i < finalResultsIdsArray.length; i++){
@@ -34,22 +33,10 @@ export default async function handler(req, res) {
 			name: dbArticle.name,
 			slug: dbArticle.slug,
 		};
-		//newResults.name = dbArticle.name;
-		//newResults.slug = dbArticle.slug;
-		//newResults.id[i] = finalResultsIdsArray[i];
-		//newResults.name[i] = await getArticleById(finalResultsIdsArray[i]).name;
-		//newResults.slug[i] = await getArticleById(finalResultsIdsArray[i]).slug;
 		newResults.push(resultArticle);
 	}
-	//
-	// //console.log(newResults);
-	//
-	// res.status(200).json( newResults.name );
-	// res.status(200).json(results);
-	// //res.status(200).toString(results);
 
-	//console.log(newResults);
-
+	//return json-objects
 	res.status(200).json({
 		newResults: newResults,
 	});
