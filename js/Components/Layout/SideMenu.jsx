@@ -1,42 +1,36 @@
-import { Slider, Button, ButtonGroup, } from '@mui/material';
-import { useRouter, } from 'next/router.js';
-import { useTranslation, } from 'next-i18next';
+import Link from 'next/link.js';
 import React from 'react';
+import { useTranslation, } from 'next-i18next';
 
 export default function SideMenu() {
-	const { t, i18n, } = useTranslation();
-	const router = useRouter();
-	const changeLanguage = language => {
-		i18n.changeLanguage(language);
-		router.push(router.pathname, router.asPath, { locale: language, });
-	};
+	const { t, } = useTranslation();
 
 	return (
-		<div id="SideMenu">
-			<div id='side-container'>
-				<p id="sidemenu-text">{t('fontSize')}</p>
-				<Slider
-					id='font-size-slider'
-					aria-label='Font size slider'
-					defaultValue={ 4 }
-					step={ 2 }
-					marks={ true }
-					min={ 2 }
-					max={ 8 }
-				/>
-				<p id="sidemenu-text">{t('language')}</p>
-				<ButtonGroup
-					variant="contained"
-					aria-label="Basic button group"
-					id='language-button'
-					size='large'
-				>
-					<Button onClick={ () => changeLanguage('en') }>English</Button>
-					<Button onClick={ () => changeLanguage('se') }>Swedish</Button>
-					<Button onClick={ () => changeLanguage('se') }>Amharic</Button>
-				</ButtonGroup>
+		<div
+			id="SideMenu"
+			style={{ width: '90%', }} >
+			<div
+				className={ 'content-container' }
+				style={{marginTop: '80px', }}>
+				<div
+					style={{ backgroundColor: '#000830', width: '100%', }}
+					className={ 'border border-gray-300 rounded p-4 mb-4' }>
+					<Link href={ '../settings' } >
+						<h2
+							className={ 'text-3xl font-bold' }
+							style={{ color: '#FFFFFF', }}>{t('settings')}</h2>
+					</Link>
+				</div>
+				<div
+					style={{ backgroundColor: '#000830', width: '100%', }}
+					className={ 'border border-gray-300 rounded p-4 mb-4' }>
+					<Link href={ '' }>
+						<h2
+							className={ 'text-3xl font-bold' }
+							style={{ color: '#FFFFFF', }}>{t('others')}</h2>
+					</Link>
+				</div>
 			</div>
-			
 		</div>
 	);
 }

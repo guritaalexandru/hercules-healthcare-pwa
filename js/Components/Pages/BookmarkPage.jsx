@@ -8,6 +8,7 @@ export default function BookmarkPage() {
 	const collections = useContext(CollectionsContext);
 	const { t, } = useTranslation();
 	console.log(collections);
+	console.log(t('bookmarkTitle'));
 
 	return (
 		<GeneralLayout>

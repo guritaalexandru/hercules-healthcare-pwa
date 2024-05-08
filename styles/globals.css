@@ -110,28 +110,3 @@
   transform: translateX(0);
   /* Slide the side menu into view */
 }
-
-#side-container {
-  margin-top: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#sidemenu-text {
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
-  margin-top: 40px;
-
-}
-
-#font-size-slider {
-  margin-top: 20px;
-  width: 100%;
-}
-
-#language-button {
-  margin-top: 20px;
-}

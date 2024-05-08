@@ -4,6 +4,9 @@
     "articlePageTitle": "Article Name will probably not be localized since it is dynamic",
     "bookmarkTitle": "Bookmark",
     "collectionPageTitle": "Collection Name",
+    "settingsPageTitle": "Settings",
+    "settings": "Settings",
+    "others": "Others",
     "fontSize": "Font Size",
     "language": "Language"
 }
