@@ -8,5 +8,7 @@
     "settings": "Settings",
     "others": "Others",
     "fontSize": "Font Size",
-    "language": "Language"
+    "language": "Language",
+    "history": "History",
+    "no history": "No history"
 }
