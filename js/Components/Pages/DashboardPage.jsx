@@ -6,6 +6,10 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { CollectionsContext, } from '@/pages/collections';
 import Link from 'next/link.js';
+import Search from '@/js/Components/Search';
+
+//import { CollectionsContext, } from '@/pages';
+//mport {useTranslation,} from 'react-i18next';
 
 export default function DashboardPage(){
 	const { t, } = useTranslation();
@@ -17,15 +21,8 @@ export default function DashboardPage(){
 		setHistory(localHistory);
 	}, []);
 
-	return (
-		<GeneralLayout>
-			<div id={ 'DashboardPage' }>
-				<div>
-					<div className={ 'content-container' }>
-						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
-							{t('dashboardTitle')}
-						</h1>
-					</div>
+	/*
+
 					<form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
 						<TextField
 							variant="outlined"
@@ -40,6 +37,19 @@ export default function DashboardPage(){
 							}}
 						/>					
 					</form>
+					*/
+
+	return (
+		<GeneralLayout>
+			<div id={ 'DashboardPage' }>
+				<div>
+					<div className={ 'content-container' }>
+						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
+							{t('dashboardTitle')}
+						</h1>
+					</div>
+					<Search />
+					<div className={ 'content-container' }></div>
 					<div
 						className={ 'content-container' }
 						style={{ marginTop: '40px', }}>

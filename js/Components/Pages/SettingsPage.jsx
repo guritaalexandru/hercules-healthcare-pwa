@@ -1,14 +1,14 @@
 import { Slider, Button, ButtonGroup, } from '@mui/material';
 import { useRouter, } from 'next/router.js';
-import { useTranslation, } from 'next-i18next';
+import { useTranslation, changeLanguage } from 'next-i18next';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import React from 'react';
 
 export default function SettingsPage() {
 	const { t, i18n, } = useTranslation();
 	const router = useRouter();
-	const changeLanguage = ( language ) => {
-		i18n.changeLanguage(language);
+	const changeLang = ( language ) => {
+		changeLanguage(language);
 		router.push(router.pathname, router.asPath, { locale: language, });
 		
 	};
@@ -39,9 +39,9 @@ export default function SettingsPage() {
 						id='language-button'
 						size='large'
 					>
-						<Button onClick={ () => changeLanguage('en') }>English</Button>
-						<Button onClick={ () => changeLanguage('se') }>Swedish</Button>
-						<Button onClick={ () => changeLanguage('se') }>Amharic</Button>
+						<Button onClick={ () => changeLang('en') }>English</Button>
+						<Button onClick={ () => changeLang('se') }>Swedish</Button>
+						<Button onClick={ () => changeLang('se') }>Amharic</Button>
 					</ButtonGroup>
 				</div>
 			

@@ -37,6 +37,8 @@ next-env.d.ts
 
 .env
 
+.vscode 
+
 # Auto Generated PWA files
 **/public/sw.js
 **/public/workbox-*.js
