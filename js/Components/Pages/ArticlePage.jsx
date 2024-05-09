@@ -1,6 +1,5 @@
-import React, { useContext, } from 'react';
+import React, { useContext, useEffect, } from 'react';
 import { useTranslation, } from 'next-i18next';
-
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import {ArticleContext,} from '@/pages/article/[slug]';
 import {markdownToHtml,} from '@/js/utils/markdown.js';
@@ -10,7 +9,21 @@ export default function ArticlePage(){
 	const { t, } = useTranslation();
 	const articleContentMarkdown = article.content;
 
-	const {contentHtml, tableOfContents,} = markdownToHtml(articleContentMarkdown);
+	const { contentHtml, tableOfContents, } = markdownToHtml(articleContentMarkdown);
+
+	const MAX_HISTORY_ITEMS = 4;
+	
+	useEffect(() => {
+		const history = JSON.parse(localStorage.getItem('history')) || [];
+		if (!history.some(item => item.slug === article.slug)) {
+			history.push(article);
+			// Keep only the last 4 history items
+			if (history.length > MAX_HISTORY_ITEMS) {
+				history.shift(); // Delete the first item
+			}
+			localStorage.setItem('history', JSON.stringify(history));
+		}
+	}, [article]);
 
 	return (
 		<GeneralLayout>

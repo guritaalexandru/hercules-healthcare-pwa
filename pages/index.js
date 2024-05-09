@@ -8,7 +8,7 @@ export const CollectionsContext = React.createContext({});
 
 export default function Home({ collections, }) {
 	return (
-		<CollectionsContext.Provider value={ collections }>
+		<CollectionsContext.Provider value={collections}>
 			<main className="page-container relative">
 				<DashboardPage />
 			</main>

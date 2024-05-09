@@ -1,43 +1,18 @@
-import React, { useContext, useEffect, useState, } from 'react';
+import React, { useEffect, useState, } from 'react';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
-import { TextField, IconButton, } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 
-import { CollectionsContext, } from '@/pages/collections';
 import Link from 'next/link.js';
-import Search from '@/js/Components/Search';
-
-//import { CollectionsContext, } from '@/pages';
-//mport {useTranslation,} from 'react-i18next';
+import Search from '@/js/Components/Search.jsx';
 
 export default function DashboardPage(){
 	const { t, } = useTranslation();
-	const collections = useContext(CollectionsContext);
 	const [history, setHistory] = useState([]);
 
 	useEffect(() => {
 		const localHistory = JSON.parse(localStorage.getItem('history')) || [];
 		setHistory(localHistory);
 	}, []);
-
-	/*
-
-					<form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
-						<TextField
-							variant="outlined"
-							placeholder="Search..."
-							sx={{ width: '95%', }}
-							InputProps={{
-								endAdornment: (
-									<IconButton type="submit">
-										<SearchIcon />
-									</IconButton>
-								),
-							}}
-						/>					
-					</form>
-					*/
 
 	return (
 		<GeneralLayout>
