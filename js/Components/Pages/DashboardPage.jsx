@@ -1,16 +1,18 @@
-import React, { useContext, } from 'react';
-import GeneralLayout from '@/js/Components/Layout/GeneralLayout';
+import React, { useEffect, useState, } from 'react';
+import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 
-import { CollectionsContext, } from '@/pages';
+import Link from 'next/link.js';
+import Search from '@/js/Components/Search.jsx';
 
-export default function DashboardPage(props){
-	const collections = useContext(CollectionsContext);
+export default function DashboardPage(){
 	const { t, } = useTranslation();
-	console.log(collections);
+	const [history, setHistory] = useState([]);
+
+	useEffect(() => {
+		const localHistory = JSON.parse(localStorage.getItem('history')) || [];
+		setHistory(localHistory);
+	}, []);
 
 	return (
 		<GeneralLayout>
@@ -21,21 +23,36 @@ export default function DashboardPage(props){
 							{t('dashboardTitle')}
 						</h1>
 					</div>
-					<form style={{ display: 'flex', justifyContent: 'center', }}>
-						<TextField
-							variant="outlined"
-							placeholder="Search..."
-							sx={{ width: '95%', }}
-							InputProps={{
-								endAdornment: (
-									<IconButton type="submit">
-										<SearchIcon />
-									</IconButton>
-								),
-							}}
-						/>
-					</form>
+					<Search />
 					<div className={ 'content-container' }></div>
+					<div
+						className={ 'content-container' }
+						style={{ marginTop: '40px', }}>
+						<h2
+							className={ 'text-3xl font-bold' }
+							style={{ textAlign: 'center', }}>
+							{t('history')}
+						</h2>
+						{history.length === 0 ? (
+							<p
+								className={ 'text-2xl' }
+								style={{ textAlign: 'center', }}>{t('no history')}</p>
+						) : (
+							history.map((article, index) => {
+								return (
+									<div
+										key={ index }
+										className={ 'border border-gray-300 rounded p-4 mb-4' }>
+										<Link href={ '/article/' + article.slug }>
+											<h2 className={ 'text-3xl font-bold' }>
+												{article.name}
+											</h2>
+										</Link>
+									</div>
+								);
+							})
+						)}
+					</div>
 				</div>
 			</div>
 		</GeneralLayout>

@@ -2,6 +2,15 @@
     "dashboardTitle": "Dashboard in Swedish",
     "allCollectionsTitle": "All Collections in Swedish",
     "articlePageTitle": "Article Name in Swedish will probably not be localized since it is dynamic",
+    "bookmarkTitle": "Bookmark in Swedish",
+    "collectionPageTitle": "Collection Name in Swedish",
+    "settingsPageTitle": "Settings in Swedish",
+    "settings": "Settings in Swedish",
+    "others": "Others in Swedish",
+    "fontSize": "Font Size in Swedish",
+    "language": "Language in Swedish",
+    "history": "History in Swedish",
+    "no history": "No history in Swedish",
     "CollectionPageTitle": "Collection Name in Swedish",
     "bookmarksPageTitle": "Bokmärken"
 }
