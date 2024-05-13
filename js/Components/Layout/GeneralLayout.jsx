@@ -4,7 +4,7 @@ import BottomNavigation from '@/js/Components/Layout/BottomNavigation.jsx';
 
 export default function GeneralLayout({ children, }) {
 	return (
-		<div className="h-screen relative flex flex-col">
+		<div className="h-screen flex flex-col">
 			<Header />
 			<div className="h-12"></div>
 			<div className="flex-1 overflow-y-auto pb-20">
