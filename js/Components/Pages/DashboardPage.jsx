@@ -4,6 +4,7 @@ import { useTranslation, } from 'next-i18next';
 
 import Link from 'next/link.js';
 import Search from '@/js/Components/Search.jsx';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
 
 export default function DashboardPage(){
 	const { t, } = useTranslation();
@@ -26,7 +27,7 @@ export default function DashboardPage(){
 					<Search />
 					<div className={ 'content-container' }></div>
 					<div
-						className={ 'content-container' }
+						className={ '' }
 						style={{ marginTop: '40px', }}>
 						<h2
 							className={ 'text-3xl font-bold' }
@@ -40,15 +41,11 @@ export default function DashboardPage(){
 						) : (
 							history.map((article, index) => {
 								return (
-									<div
+									<StackedListItemComponent
 										key={ index }
-										className={ 'border border-gray-300 rounded p-4 mb-4' }>
-										<Link href={ '/article/' + article.slug }>
-											<h2 className={ 'text-3xl font-bold' }>
-												{article.name}
-											</h2>
-										</Link>
-									</div>
+										title={ article.name }
+										link={ `/article/${article.slug}` }
+									/>
 								);
 							})
 						)}
