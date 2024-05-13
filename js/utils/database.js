@@ -39,7 +39,7 @@ const getArticleBySlug = slug => {
 	return db.prepare('SELECT * FROM ARTICLES WHERE slug = ?').get(slug);
 };
 
-export {
+module.exports = {
 	getAllCollections,
 	getCollectionById,
 	getArticlesByCollection,
