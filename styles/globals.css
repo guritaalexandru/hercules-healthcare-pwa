@@ -14,7 +14,7 @@
   html,
   body {
     max-width: 100vw;
-    scroll-behavior: smooth;
+    overflow: hidden;
     @apply text-cyan-900;
   }
 
