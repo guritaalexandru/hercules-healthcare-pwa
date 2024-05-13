@@ -59,7 +59,7 @@ export default function ArticlePage() {
 		<GeneralLayout>
 			<div
 				id={ 'ArticlePage' }
-				className={ 'relative' }>
+				className={ 'relative pt-12' }>
 				<ArticleStickyBar
 					showToc={ showTableOfContents }
 					toggleToc={ toggleTableOfContents }

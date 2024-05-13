@@ -3,7 +3,7 @@ import {FaBookmark, FaRegBookmark,} from 'react-icons/fa';
 
 export default function ArticleStickyBar ({ showToc, toggleToc, isBookmarked, toggleBookmark, }) {
 	return (
-		<div className="sticky top-0 bg-white p-4 shadow-md flex justify-between items-center">
+		<div className="fixed top-12 w-full bg-white p-4 shadow-md flex justify-between items-center">
 			<button
 				onClick={ toggleToc }
 				className="mr-4">
