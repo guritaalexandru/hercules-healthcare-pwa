@@ -4,6 +4,7 @@ import { useTranslation, } from 'next-i18next';
 
 import Link from 'next/link';
 import {getLocalStorage, LOCAL_STORAGE_KEYS,} from '@/js/utils/localStorage.js';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
 
 export default function CollectionPage(props){
 	const [bookmarkedArticles, setBookmarkedArticles] = useState([]);
@@ -31,15 +32,11 @@ export default function CollectionPage(props){
 						) : (
 							bookmarkedArticles.map((article, index) => {
 								return (
-									<div
+									<StackedListItemComponent
 										key={ index }
-										className={ 'border border-gray-300 rounded p-4 mb-4' }>
-										<Link href={ '/article/' + article.slug }>
-											<h2 className={ 'text-3xl font-bold' }>
-												{article.name}
-											</h2>
-										</Link>
-									</div>
+										title={ article.name }
+										link={ `/article/${article.slug}` }
+									/>
 								);
 							})
 						)}

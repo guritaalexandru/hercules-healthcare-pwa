@@ -9,8 +9,6 @@ export default function CollectionPage(){
 	const articles = useContext(CollectionContext);
 	const { t, } = useTranslation();
 
-	console.log(articles);
-
 	return (
 		<GeneralLayout>
 			<div id={ 'CollectionPage' }>

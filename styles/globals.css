@@ -111,3 +111,45 @@
   transform: translateX(0);
   /* Slide the side menu into view */
 }
+
+/* Typography */
+.markdown-content p {
+  /* Paragraph styles */
+  margin-bottom: 1rem; /* Example margin */
+  line-height: 1.5; /* Example line height */
+}
+
+.markdown-content h1 {
+  /* Heading 1 styles */
+  font-size: 2rem; /* Example font size */
+  font-weight: bold;
+  color: #333; /* Example color */
+  margin-bottom: 1.5rem; /* Example margin */
+}
+
+.markdown-content h2 {
+  /* Heading 2 styles */
+  font-size: 1.5rem; /* Example font size */
+  font-weight: bold;
+  color: #555; /* Example color */
+  margin-bottom: 1.25rem; /* Example margin */
+}
+
+/* Lists */
+.markdown-content ul {
+  /* Unordered list styles */
+  list-style-type: disc; /* Example list style */
+  margin-left: 1.5rem; /* Example margin */
+}
+
+.markdown-content li {
+  /* List item styles */
+  margin-bottom: 0.5rem; /* Example margin */
+}
+
+/* Links */
+.markdown-content a {
+  /* Link styles */
+  color: #007bff; /* Example link color */
+  text-decoration: underline; /* Example text decoration */
+}
