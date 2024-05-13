@@ -13,13 +13,13 @@ export default function Header() {
 		<>
 			<div
 				id="Header"
-				className="fixed top-0 left-0 w-full bg-gray-800 text-white p-4 flex justify-between items-center h-12">
-				<div className="text-xl font-bold">Healthcare in Your Hands</div>
+				className="fixed top-0 left-0 w-full bg-gray-800 text-white px-4 flex justify-between items-center h-12 z-50">
+				<div className="text-l font-bold">Healthcare in Your Hands</div>
 				<button
 					type="button"
 					className="focus:outline-none"
 					onClick={ toggleSideMenu }>
-					<FaBars className="text-xl"/>
+					<FaBars className="text-l"/>
 				</button>
 			</div>
 			<div className={ `side-menu ${isSideMenuOpen ? 'open' : ''}` }>

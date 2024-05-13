@@ -1,24 +1,25 @@
-import React, {useContext, useEffect, useState,} from 'react';
-import {useTranslation,} from 'next-i18next';
+import React, { useContext, useEffect, useState, } from 'react';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
-import {ArticleContext,} from '@/pages/article/[slug]';
-import {markdownToHtml,} from '@/js/utils/markdown.js';
+import { ArticleContext, } from '@/pages/article/[slug]';
+import { markdownToHtml, } from '@/js/utils/markdown.js';
 import {
 	addToLocalStorage,
 	findInLocalStorage,
 	LOCAL_STORAGE_KEYS,
 	removeFromLocalStorage,
 } from '@/js/utils/localStorage';
-import {FaBookmark, FaRegBookmark,} from 'react-icons/fa';
+import { FaBookmark, FaRegBookmark, } from 'react-icons/fa';
+import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
+import ArticleStickyBar from '@/js/Components/Parts/ArticleStickyBar';
 
 export default function ArticlePage() {
 	const article = useContext(ArticleContext);
-	const {t,} = useTranslation();
 
 	const [isArticleBookmarked, setIsArticleBookmarked] = useState(false);
+	const [showTableOfContents, setShowTableOfContents] = useState(false);
 
 	const articleContentMarkdown = article.content;
-	const {contentHtml, tableOfContents,} = markdownToHtml(articleContentMarkdown);
+	const { contentHtml, tableOfContents, } = markdownToHtml(articleContentMarkdown);
 
 	const MAX_HISTORY_ITEMS = 4;
 
@@ -36,42 +37,39 @@ export default function ArticlePage() {
 		setIsArticleBookmarked(findInLocalStorage(LOCAL_STORAGE_KEYS.BOOKMARKS, article.id));
 	}, []);
 
+	const toggleBookmark = () => {
+		if (isArticleBookmarked) {
+			removeFromLocalStorage(LOCAL_STORAGE_KEYS.BOOKMARKS, article.id);
+			setIsArticleBookmarked(false);
+		} else {
+			addToLocalStorage(LOCAL_STORAGE_KEYS.BOOKMARKS, {
+				id: article.id,
+				slug: article.slug,
+				name: article.name,
+			});
+			setIsArticleBookmarked(true);
+		}
+	};
+
+	const toggleTableOfContents = () => {
+		setShowTableOfContents(!showTableOfContents);
+	};
+
 	return (
 		<GeneralLayout>
-			<div id={ 'ArticlePage' }>
-				<div className={ 'content-container' }>
-					<h1 className={ 'text-5xl text-center mb-10 mt-10' }>
-						{article.name}
-					</h1>
-				</div>
-				<div className={ 'content-container' }>
-					{
-						isArticleBookmarked ?
-							<button
-								onClick={ () => {
-									removeFromLocalStorage(LOCAL_STORAGE_KEYS.BOOKMARKS, article.id);
-									setIsArticleBookmarked(false);
-								} }>
-								<FaBookmark className="text-gray-600 text-xl"/>
-							</button>
-							:
-							<button
-								onClick={ () => {
-									addToLocalStorage(LOCAL_STORAGE_KEYS.BOOKMARKS, {
-										id: article.id,
-										slug: article.slug,
-										name: article.name,
-									});
-									setIsArticleBookmarked(true);
-								} }>
-								<FaRegBookmark className="text-gray-600 text-xl"/>
-							</button>
-					}
-				</div>
+			<div
+				id={ 'ArticlePage' }
+				className={ 'relative' }>
+				<ArticleStickyBar
+					showToc={ showTableOfContents }
+					toggleToc={ toggleTableOfContents }
+					isBookmarked={ isArticleBookmarked }
+					toggleBookmark={ toggleBookmark }
+				/>
+				<SimpleTitleSection title={ article.name } />
 				<div className="content-container">
-					{tableOfContents.length > 0 && (
-						<div
-							className="w-full bg-gray-100 px-4 py-3 text-left text-gray-800 break-words max-w-md rounded">
+					{showTableOfContents && tableOfContents.length > 0 && (
+						<div className="w-full bg-gray-100 px-4 py-3 text-left text-gray-800 break-words max-w-md rounded">
 							<h2 className="mx-auto text-xl font-semibold">Table of Contents</h2>
 							<ul className="mt-2 list-disc px-2 pl-6">
 								{tableOfContents.map((toc, index) => (
@@ -90,7 +88,7 @@ export default function ArticlePage() {
 					)}
 				</div>
 				<div className={ 'content-container markdown-content' }>
-					<div dangerouslySetInnerHTML={{__html: contentHtml,}}/>
+					<div dangerouslySetInnerHTML={{ __html: contentHtml, }} />
 				</div>
 			</div>
 		</GeneralLayout>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import CollectionPage from '@/js/Components/Pages/CollectionPage';
 import {getAllCollections, getArticlesByCollectionSlug,} from '@/js/utils/database';
+import {serverSideTranslations,} from 'next-i18next/serverSideTranslations';
 
 export const CollectionContext = React.createContext({});
 
@@ -15,18 +16,21 @@ export default function Collection({articles,}) {
 	);
 }
 
-export function getStaticProps({params,}) {
+export async function getStaticProps({params,  locale = 'se',}) {
 	const collectionSlug = params.slug;
 	const articles = getArticlesByCollectionSlug(collectionSlug);
 
 	return {
 		props: {
 			articles: articles,
+			...(await serverSideTranslations(locale, [
+				'common'
+			])),
 		},
 	};
 }
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
 	const paths = getAllCollections().map(collection => ({
 		params: {slug: collection.slug,},
 	}));

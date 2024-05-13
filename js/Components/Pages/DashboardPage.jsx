@@ -5,6 +5,7 @@ import { useTranslation, } from 'next-i18next';
 import Link from 'next/link.js';
 import Search from '@/js/Components/Search.jsx';
 import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
+import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
 
 export default function DashboardPage(){
 	const { t, } = useTranslation();
@@ -19,11 +20,7 @@ export default function DashboardPage(){
 		<GeneralLayout>
 			<div id={ 'DashboardPage' }>
 				<div>
-					<div className={ 'content-container' }>
-						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
-							{t('dashboardTitle')}
-						</h1>
-					</div>
+					<SimpleTitleSection title={ t('dashboardTitle') } />
 					<Search />
 					<div className={ 'content-container' }></div>
 					<div
