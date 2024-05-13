@@ -7,7 +7,7 @@ export default function GeneralLayout({ children, }) {
 		<div className="h-screen relative flex flex-col">
 			<Header />
 			<div className="h-12"></div>
-			<div className="flex-1 overflow-y-auto">
+			<div className="flex-1 overflow-y-auto pb-20">
 				{children}
 			</div>
 			<div className="h-12"></div>
