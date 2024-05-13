@@ -3,7 +3,7 @@ import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 
 import {CollectionContext,} from '@/pages/collections/[slug]';
-import Link from 'next/link.js';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
 
 export default function CollectionPage(){
 	const articles = useContext(CollectionContext);
@@ -20,18 +20,14 @@ export default function CollectionPage(){
 							{t('collectionPageTitle')}
 						</h1>
 					</div>
-					<div className={ 'content-container' }>
+					<div className={ '' }>
 						{articles.map((article, index) => {
 							return (
-								<div
+								<StackedListItemComponent
 									key={ index }
-									className={ 'border border-gray-300 rounded p-4 mb-4' }>
-									<Link href={ '/article/' + article.slug }>
-										<h2 className={ 'text-3xl font-bold' }>
-											{article.name}
-										</h2>
-									</Link>
-								</div>
+									title={ article.name }
+									link={ `/article/${article.slug}` }
+								/>
 							);
 						})}
 					</div>
