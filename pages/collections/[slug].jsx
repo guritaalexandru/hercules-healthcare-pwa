@@ -16,7 +16,7 @@ export default function Collection({articles,}) {
 	);
 }
 
-export async function getStaticProps({params,  locale = 'se',}) {
+export async function getStaticProps({params,  locale = 'en',}) {
 	const collectionSlug = params.slug;
 	const articles = getArticlesByCollectionSlug(collectionSlug);
 

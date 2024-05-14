@@ -11,7 +11,7 @@ export default function Bookmarks() {
 	);
 } 
 
-export async function getStaticProps({ locale = 'se',}) {
+export async function getStaticProps({ locale = 'en',}) {
 
 	return {
 		props: {
