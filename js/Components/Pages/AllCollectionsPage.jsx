@@ -3,7 +3,8 @@ import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 
 import { CollectionsContext, } from '@/pages/collections';
-import Link from 'next/link.js';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
+import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
 
 export default function AllCollectionsPage(){
 	const collections = useContext(CollectionsContext);
@@ -14,22 +15,16 @@ export default function AllCollectionsPage(){
 		<GeneralLayout>
 			<div id={ 'AllCollectionsPage' }>
 				<div>
-					<div className={ 'content-container' }>
-						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
-							{t('allCollectionsTitle')}
-						</h1>
-					</div>
-					<div className={ 'content-container' }>
+					<SimpleTitleSection title={ t('allCollectionsTitle') } />
+					<div className={ '' }>
 						{collections.map((collection, index) => {
 							return (
-								<div
+								<StackedListItemComponent
 									key={ index }
-									className={ 'border border-gray-300 rounded p-4 mb-4' }
-								>
-									<Link href={ '/collections/' + collection.slug }>
-										<h2 className={ 'text-3xl font-bold' }>{collection.name}</h2>
-									</Link>
-								</div>
+									title={ collection.name }
+									link={ `/collections/${collection.slug}` }
+									description={ collection.short_description }
+								/>
 							);
 						})}
 					</div>

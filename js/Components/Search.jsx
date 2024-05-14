@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import Link from "next/link";
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
 
 export default function Search() {
 	const [query, setQuery] = useState('');
@@ -38,7 +38,7 @@ export default function Search() {
 					value={ query }
 					onChange={ handleSearch }
 					placeholder="Search..."
-					sx={{ width: '95%', }}
+					sx={{ width: '100%', }}
 					InputProps={{
 						endAdornment: (
 							<IconButton type="submit">
@@ -48,25 +48,24 @@ export default function Search() {
 					}}
 				/>
 			</form>
-			{results.map((result, index) => (
-				<div
-					key={ index }
-					style={{ //TODO: styling
-						backgroundColor: '#f8f9fa',
-						width: '90%',
-						border: '1px solid #dee2e6',
-						borderRadius: '5px',
-						padding: '10px',
-						margin: '5px auto',
-					}}>
-					<Link
-						href={"/article/" + result.slug }
-						className={"flex-1 flex items-center justify-center"}
-					>
-						{result.name}
-					</Link>		
-				</div>
-			))}
+			{
+				results.length === 0 && query.length > 0 && (
+					<p className="text-center text-2xl pt-5">No results found</p>
+				)
+			}
+			{
+				results.length !== 0 && query.length && (
+					<>
+						<h2 className="text-3xl font-bold text-center mt-10">{results.length} results found</h2>
+						{results.map((result, index) => (
+							<StackedListItemComponent
+								key={ index }
+								title={ result.name }
+								link={ `/article/${result.slug}` }/>
+						))}
+					</>
+				)
+			}
 		</div>
 	);
 }

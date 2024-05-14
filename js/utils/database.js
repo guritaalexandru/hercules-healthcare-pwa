@@ -1,5 +1,8 @@
 import Database from 'better-sqlite3';
-const db = new Database('hercules.db', { verbose: console.log, });
+import path from 'path';
+
+const dbPath = path.join(process.cwd(), 'hercules.db');
+const db = new Database(dbPath, { verbose: console.log, });
 db.pragma('journal_mode = WAL');
 
 const getAllCollections = () => {
@@ -39,7 +42,7 @@ const getArticleBySlug = slug => {
 	return db.prepare('SELECT * FROM ARTICLES WHERE slug = ?').get(slug);
 };
 
-export {
+module.exports = {
 	getAllCollections,
 	getCollectionById,
 	getArticlesByCollection,

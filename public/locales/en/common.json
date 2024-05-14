@@ -10,5 +10,7 @@
     "fontSize": "Font Size",
     "language": "Language",
     "history": "History",
-    "no history": "No history"
+    "no history": "No history",
+    "CollectionPageTitle": "Collection Name",
+    "bookmarksPageTitle": "Bookmarks"
 }

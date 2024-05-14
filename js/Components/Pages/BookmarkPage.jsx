@@ -1,24 +1,46 @@
-import React, { useContext, } from 'react';
+import React, {useEffect, useState,} from 'react';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 
-import { CollectionsContext, } from '@/pages';
+import Link from 'next/link';
+import {getLocalStorage, LOCAL_STORAGE_KEYS,} from '@/js/utils/localStorage.js';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
 
-export default function BookmarkPage() {
-	const collections = useContext(CollectionsContext);
+export default function CollectionPage(props){
+	const [bookmarkedArticles, setBookmarkedArticles] = useState([]);
 	const { t, } = useTranslation();
-	console.log(collections);
+
+	useEffect(() => {
+		const bookmarks = getLocalStorage(LOCAL_STORAGE_KEYS.BOOKMARKS);
+		setBookmarkedArticles(bookmarks);
+	}, []);
 
 	return (
 		<GeneralLayout>
-			<div id={ 'BookmarkPage' }>
+			<div id={ 'CollectionPage' }>
 				<div>
 					<div className={ 'content-container' }>
-						<h1 className={ 'text-4xl text-center mb-10 mt-10' }>
-							{t('bookmarkTitle')}
+						<h1 className={ 'text-5xl text-center mb-20 mt-10' }>
+							{t('bookmarksPageTitle')}
 						</h1>
 					</div>
-					<div className={ 'content-container' }></div>
+					<div className={ 'content-container' }>
+						{bookmarkedArticles.length === 0 ? (
+							<p
+								className={ 'text-2xl' }
+								style={{ textAlign: 'center', }}>{t('noBookmarks')}</p>
+						) : (
+							bookmarkedArticles.map((article, index) => {
+								return (
+									<StackedListItemComponent
+										key={ index }
+										title={ article.name }
+										link={ `/article/${article.slug}` }
+									/>
+								);
+							})
+						)}
+					</div>
 				</div>
 			</div>
 		</GeneralLayout>

@@ -6,12 +6,11 @@ export default function BottomNavigation() {
 	return (
 		<div
 			id="BottomNavigation"
-			className="fixed bottom-0 left-0 w-full bg-gray-200 p-2 flex justify-between"
+			className="fixed bottom-0 left-0 w-full bg-gray-200 h-12 flex justify-between"
 		>
 			<Link
 				href={ '/' }
 				className={ 'flex-1 flex items-center justify-center' }
-				style={{ minHeight: '60px', }}
 			>
 				<button
 					type="button"
@@ -22,7 +21,6 @@ export default function BottomNavigation() {
 			<Link
 				href={ '/collections' }
 				className={ 'flex-1 flex items-center justify-center' }
-				style={{ minHeight: '60px', }}
 			>
 				<button
 					type="button"
@@ -33,7 +31,6 @@ export default function BottomNavigation() {
 			<Link
 				href={ '/bookmarks' }
 				className={ 'flex-1 flex items-center justify-center' }
-				style={{ minHeight: '60px', }}
 			>
 				<button
 					type="button"
