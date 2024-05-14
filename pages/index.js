@@ -16,7 +16,7 @@ export default function Home({ collections, }) {
 	);
 }
 
-export async function getStaticProps({ locale = 'se', }) {
+export async function getStaticProps({ locale = 'en', }) {
 	const collectionsArray = getAllCollections();
 
 	return {
