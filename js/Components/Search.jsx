@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent.jsx';
 
 export default function Search() {
 	const [query, setQuery] = useState('');

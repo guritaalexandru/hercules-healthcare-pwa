@@ -7,10 +7,9 @@ import {
 	findInLocalStorage,
 	LOCAL_STORAGE_KEYS,
 	removeFromLocalStorage,
-} from '@/js/utils/localStorage';
-import { FaBookmark, FaRegBookmark, } from 'react-icons/fa';
-import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
-import ArticleStickyBar from '@/js/Components/Parts/ArticleStickyBar';
+} from '@/js/utils/localStorage.js';
+import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection.jsx';
+import ArticleStickyBar from '@/js/Components/Parts/ArticleStickyBar.jsx';
 
 export default function ArticlePage() {
 	const article = useContext(ArticleContext);

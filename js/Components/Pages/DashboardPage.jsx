@@ -2,10 +2,9 @@ import React, { useEffect, useState, } from 'react';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 
-import Link from 'next/link.js';
 import Search from '@/js/Components/Search.jsx';
-import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
-import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent.jsx';
+import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection.jsx';
 
 export default function DashboardPage(){
 	const { t, } = useTranslation();

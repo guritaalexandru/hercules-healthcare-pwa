@@ -2,11 +2,10 @@ import React, {useEffect, useState,} from 'react';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 
-import Link from 'next/link';
 import {getLocalStorage, LOCAL_STORAGE_KEYS,} from '@/js/utils/localStorage.js';
-import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent.jsx';
 
-export default function CollectionPage(props){
+export default function CollectionPage(){
 	const [bookmarkedArticles, setBookmarkedArticles] = useState([]);
 	const { t, } = useTranslation();
 

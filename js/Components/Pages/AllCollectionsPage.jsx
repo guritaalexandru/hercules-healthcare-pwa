@@ -3,8 +3,8 @@ import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import { useTranslation, } from 'next-i18next';
 
 import { CollectionsContext, } from '@/pages/collections';
-import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
-import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
+import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent.jsx';
+import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection.jsx';
 
 export default function AllCollectionsPage(){
 	const collections = useContext(CollectionsContext);
