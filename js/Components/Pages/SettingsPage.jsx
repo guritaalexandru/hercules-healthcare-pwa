@@ -2,11 +2,14 @@ import { Slider, Button, ButtonGroup, } from '@mui/material';
 import { useTranslation, } from 'next-i18next';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
 import React from 'react';
+import {useRouter,} from 'next/router';
 
 export default function SettingsPage() {
 	const { t, i18n, } = useTranslation();
-	const changeLanguage = lng => {
-		i18n.changeLanguage(lng);
+	const router = useRouter();
+	const changeLanguage = language => {
+		const currentPath = router.pathname;
+		router.push(currentPath, currentPath, { locale: language, });
 	};
 
 	return (

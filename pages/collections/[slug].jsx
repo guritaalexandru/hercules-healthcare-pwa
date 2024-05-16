@@ -2,7 +2,7 @@ import React from 'react';
 
 import CollectionPage from '@/js/Components/Pages/CollectionPage';
 import {getAllCollections, getArticlesByCollectionSlug,} from '@/js/utils/database';
-import {serverSideTranslations,} from 'next-i18next/serverSideTranslations';
+import { serverSideTranslations, } from 'next-i18next/serverSideTranslations.js';
 
 export const CollectionContext = React.createContext({});
 
@@ -31,9 +31,12 @@ export async function getStaticProps({params,  locale = 'en',}) {
 }
 
 export function getStaticPaths() {
-	const paths = getAllCollections().map(collection => ({
-		params: {slug: collection.slug,},
-	}));
+	const allCollections = getAllCollections();
+	const paths = [];
+	allCollections.forEach(collection => {
+		paths.push({params: {slug: collection.slug,}, locale: 'en',});
+		paths.push({params: {slug: collection.slug,}, locale: 'se',});
+	});
 
 	return {paths, fallback: false,};
 }

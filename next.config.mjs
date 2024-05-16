@@ -1,6 +1,5 @@
 import withPWA from 'next-pwa';
 
-const { i18n, } = import('./next-i18next.config.js');
 // Configuration options for Next.js
 const nextConfig = {
   reactStrictMode: false, // Enable React strict mode for improved error handling
@@ -16,7 +15,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint errors during production builds
   },
-  i18n,
+  i18n: {
+    locales: ['en', 'se'],
+    defaultLocale: 'en',
+  },
 };
 
 // Configuration object tells the next-pwa plugin
