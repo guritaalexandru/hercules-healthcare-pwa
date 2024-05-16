@@ -2,6 +2,7 @@ import React from 'react';
 
 import {getAllArticles, getArticleBySlug,} from '@/js/utils/database';
 import ArticlePage from '@/js/Components/Pages/ArticlePage';
+import {serverSideTranslations,} from 'next-i18next/serverSideTranslations';
 
 export const ArticleContext = React.createContext({});
 
@@ -15,13 +16,16 @@ export default function Collection({article,}) {
 	);
 }
 
-export function getStaticProps({params,}) {
+export async function getStaticProps({params,  locale = 'en',}) {
 	const articleSlug = params.slug;
 	const article = getArticleBySlug(articleSlug);
 
 	return {
 		props: {
 			article: article,
+			...(await serverSideTranslations(locale, [
+				'common'
+			])),
 		},
 	};
 }
