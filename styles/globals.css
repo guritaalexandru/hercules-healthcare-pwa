@@ -100,7 +100,7 @@
   /* Slide transition effect */
   transform: translateX(100%);
   /* Initially hide the side menu off-screen */
-  opacity: 0.9;
+  opacity: 0.98;
   /* Semi-transparent background */
   display: flex;
   justify-content: center;

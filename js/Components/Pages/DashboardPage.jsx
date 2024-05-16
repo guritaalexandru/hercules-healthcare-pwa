@@ -34,7 +34,7 @@ export default function DashboardPage(){
 						{history.length === 0 ? (
 							<p
 								className={ 'text-2xl' }
-								style={{ textAlign: 'center', }}>{t('no history')}</p>
+								style={{ textAlign: 'center', }}>{t('noHistory')}</p>
 						) : (
 							history.map((article, index) => {
 								return (

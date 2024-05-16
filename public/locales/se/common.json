@@ -1,15 +1,12 @@
 {
-    "dashboardTitle": "Dashboard",
+    "dashboardTitle": "Instrumentbräda",
     "allCollectionsTitle": "Alla Kollektioner",
-    "articlePageTitle": "Article Name",
-    "bookmarkTitle": "Bokmärken",
-    "collectionPageTitle": "Collection Name in Swedish",
     "settingsPageTitle": "Inställningar",
     "settings": "Inställningar",
     "others": "Övrigt",
     "fontSize": "Textstorlek",
     "language": "Språk",
     "history": "Historik",
-    "no history": "Ingen historik",
+    "noHistory": "Ingen historik",
     "bookmarksPageTitle": "Bokmärken"
 }

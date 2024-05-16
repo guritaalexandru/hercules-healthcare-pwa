@@ -1,19 +1,17 @@
 import React, { useContext, } from 'react';
 import GeneralLayout from '@/js/Components/Layout/GeneralLayout.jsx';
-import { useTranslation, } from 'next-i18next';
 
 import {CollectionContext,} from '@/pages/collections/[slug]';
 import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
 import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
 
 export default function CollectionPage(){
-	const articles = useContext(CollectionContext);
-	const { t, } = useTranslation();
+	const {articles, collectionName,} = useContext(CollectionContext);
 
 	return (
 		<GeneralLayout>
 			<div id={ 'CollectionPage' }>
-				<SimpleTitleSection title={ t('collectionPageTitle') } />
+				<SimpleTitleSection title={ collectionName } />
 				<div className={ '' }>
 					{articles.map((article, index) => {
 						return (
