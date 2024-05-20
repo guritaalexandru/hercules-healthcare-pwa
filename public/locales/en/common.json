@@ -8,5 +8,11 @@
     "language": "Language",
     "history": "History",
     "noHistory": "No history",
-    "bookmarksPageTitle": "Bookmarks"
+    "bookmarksPageTitle": "Bookmarks",
+    "tableOfContents": "Table of Contents",
+    "englishButton": "English",
+    "swedishButton": "Swedish",
+    "noSearchResults": "No results found",
+    "searchResults": "search results",
+    "searchPlaceholder": "Search"
 }

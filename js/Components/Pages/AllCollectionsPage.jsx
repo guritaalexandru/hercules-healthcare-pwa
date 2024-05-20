@@ -9,7 +9,6 @@ import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
 export default function AllCollectionsPage(){
 	const collections = useContext(CollectionsContext);
 	const { t, } = useTranslation();
-	console.log(collections);
 
 	return (
 		<GeneralLayout>

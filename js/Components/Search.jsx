@@ -3,10 +3,12 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import StackedListItemComponent from '@/js/Components/Parts/StackedListItemComponent';
+import {useTranslation,} from 'next-i18next';
 
 export default function Search() {
 	const [query, setQuery] = useState('');
 	const [results, setResults] = useState([]);
+	const { t, } = useTranslation();
 
 	const handleSearch = async event => {
 		event.preventDefault(); // Prevent the form from refreshing the page
@@ -37,7 +39,7 @@ export default function Search() {
 					variant="outlined"
 					value={ query }
 					onChange={ handleSearch }
-					placeholder="Search..."
+					placeholder={ t('searchPlaceholder') }
 					sx={{ width: '100%', }}
 					InputProps={{
 						endAdornment: (
@@ -50,13 +52,13 @@ export default function Search() {
 			</form>
 			{
 				results.length === 0 && query.length > 0 && (
-					<p className="text-center text-2xl pt-5">No results found</p>
+					<p className="text-center text-2xl pt-5">{t('noSearchResults')}</p>
 				)
 			}
 			{
 				results.length !== 0 && query.length && (
 					<>
-						<h2 className="text-3xl font-bold text-center mt-10">{results.length} results found</h2>
+						<h2 className="text-3xl font-bold text-center mt-10">{`${results.length} ${t('searchResults')}`}</h2>
 						{results.map((result, index) => (
 							<StackedListItemComponent
 								key={ index }

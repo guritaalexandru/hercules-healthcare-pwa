@@ -38,9 +38,9 @@ export default function SettingsPage() {
 						id='language-button'
 						size='large'
 					>
-						<Button onClick={ () => changeLanguage('en') }>English</Button>
-						<Button onClick={ () => changeLanguage('se') }>Swedish</Button>
-						<Button onClick={ () => changeLanguage('se') }>Amharic</Button>
+						<Button onClick={ () => changeLanguage('en') }>{t('englishButton')}</Button>
+						<Button onClick={ () => changeLanguage('se') }>{t('swedishButton')}</Button>
+						{/*<Button onClick={ () => changeLanguage('se') }>Amharic</Button>*/}
 					</ButtonGroup>
 				</div>
 			

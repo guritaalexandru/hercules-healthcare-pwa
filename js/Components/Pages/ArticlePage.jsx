@@ -8,12 +8,13 @@ import {
 	LOCAL_STORAGE_KEYS,
 	removeFromLocalStorage,
 } from '@/js/utils/localStorage';
-import { FaBookmark, FaRegBookmark, } from 'react-icons/fa';
 import SimpleTitleSection from '@/js/Components/Sections/SimpleTitleSection';
 import ArticleStickyBar from '@/js/Components/Parts/ArticleStickyBar';
+import {useTranslation,} from 'next-i18next';
 
 export default function ArticlePage() {
 	const article = useContext(ArticleContext);
+	const { t, } = useTranslation();
 
 	const [isArticleBookmarked, setIsArticleBookmarked] = useState(false);
 	const [showTableOfContents, setShowTableOfContents] = useState(false);
@@ -70,7 +71,7 @@ export default function ArticlePage() {
 				<div className="content-container">
 					{showTableOfContents && tableOfContents.length > 0 && (
 						<div className="w-full bg-gray-100 px-4 py-3 text-left text-gray-800 break-words max-w-md rounded">
-							<h2 className="mx-auto text-xl font-semibold">Table of Contents</h2>
+							<h2 className="mx-auto text-xl font-semibold">{t('tableOfContents')}</h2>
 							<ul className="mt-2 list-disc px-2 pl-6">
 								{tableOfContents.map((toc, index) => (
 									<li
