@@ -153,3 +153,16 @@
   color: #007bff; /* Example link color */
   text-decoration: underline; /* Example text decoration */
 }
+
+/* HTML Font Sizes */
+.html-font-medium {
+  font-size: 100%; /* Medium font size */
+}
+
+.html-font-large {
+  font-size: 120%; /* Large font size */
+}
+
+.html-font-xlarge {
+  font-size: 140%; /* Extra large font size */
+}

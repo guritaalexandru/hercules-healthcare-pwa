@@ -1,6 +1,21 @@
 const LOCAL_STORAGE_KEYS = {
 	HISTORY: 'history',
 	BOOKMARKS: 'bookmarks',
+	FONT_SIZE_PREFERENCE: 'fontPreference',
+};
+
+const FONT_SIZE_PREFERENCES = {
+	MEDIUM: 'medium',
+	LARGE: 'large',
+	XLARGE: 'xlarge',
+};
+
+const getFontSizePreference = () => {
+	return localStorage.getItem(LOCAL_STORAGE_KEYS.FONT_SIZE_PREFERENCE) || FONT_SIZE_PREFERENCES.MEDIUM;
+};
+
+const setFontSizePreference = value => {
+	localStorage.setItem(LOCAL_STORAGE_KEYS.FONT_SIZE_PREFERENCE, value);
 };
 
 const getLocalStorage = key => {
@@ -39,4 +54,7 @@ module.exports = {
 	removeFromLocalStorage,
 	clearLocalStorage,
 	LOCAL_STORAGE_KEYS,
+	FONT_SIZE_PREFERENCES,
+	getFontSizePreference,
+	setFontSizePreference,
 };
